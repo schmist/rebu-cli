@@ -27,7 +27,7 @@ compileTestKotlin {
 
 task updateVersion {
     doLast {
-        def file = project.file("$buildDir/resources/main/version.txt")
+        def file = project.file("$buildDir/resources/main/${project.group.toString().replace('.','/')}/version.txt")
         file.parentFile.mkdirs()
         file.createNewFile()
         file.text = project.version.toString()
@@ -39,5 +39,5 @@ graal {
     mainClass 'com.syncatec.rebu.MainKt'
     outputName 'rebu'
     graalVersion '1.0.0-rc15'
-    option '-H:IncludeResources=version.txt'
+    option '-H:IncludeResources=.*version.txt$'
 }
