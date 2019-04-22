@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'com.github.ajalt:clikt:1.7.0'
 }
 
 compileKotlin {
@@ -21,8 +22,19 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 
+task updateVersion {
+    doLast {
+        def file = project.file("$buildDir/resources/main/version.txt")
+        file.parentFile.mkdirs()
+        file.createNewFile()
+        file.text = project.version.toString()
+    }
+}
+classes.dependsOn(updateVersion)
+
 graal {
     mainClass 'MainKt'
     outputName 'rebu'
     graalVersion '1.0.0-rc15'
+    option '-H:IncludeResources=version.txt'
 }

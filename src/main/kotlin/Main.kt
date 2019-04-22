@@ -1,3 +1,2 @@
-fun main() {
-    println("hello")
-}
+fun main(args: Array<String>) =
+    RebuCommand().main(args)
