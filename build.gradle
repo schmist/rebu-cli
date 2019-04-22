@@ -36,7 +36,7 @@ task updateVersion {
 classes.dependsOn(updateVersion)
 
 graal {
-    mainClass 'MainKt'
+    mainClass 'com.syncatec.rebu.MainKt'
     outputName 'rebu'
     graalVersion '1.0.0-rc15'
     option '-H:IncludeResources=version.txt'
