@@ -2,5 +2,5 @@ package com.syncatec.rebu.cmd
 
 interface Cmd {
 
-    fun run()
+    fun run(arguments: List<String>)
 }
