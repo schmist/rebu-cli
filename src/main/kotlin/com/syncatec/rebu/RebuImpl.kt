@@ -1,6 +1,8 @@
 package com.syncatec.rebu
 
-class RebuImpl : Rebu {
+import javax.inject.Inject
+
+class RebuImpl @Inject constructor() : Rebu {
 
     companion object {
         const val versionFileName = "version.txt"
