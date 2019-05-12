@@ -1,3 +1,5 @@
 package com.syncatec.rebu.cmd
 
-class ProcessFactoryImpl : ProcessFactory
+import javax.inject.Inject
+
+class ProcessFactoryImpl @Inject constructor() : ProcessFactory
